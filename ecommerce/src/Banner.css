@@ -1,0 +1,46 @@
+.banner-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.banner {
+    flex: 1;
+    height: 200px;
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    background-size: cover;
+    background-position: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    background-color: white;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.categories button {
+    padding: 12px 25px;
+    border: 1px solid #4CAF50;
+    background: white;
+    color: #4CAF50;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.categories button:hover {
+    background: #4CAF50;
+    color: white;
+}

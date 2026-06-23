@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <img id="my-image" src="OFFbulb.png" alt="bulb" width="200px" height="200px">
+        <button onclick="document.getElementById('my-image').src='ONbulb.png'">Switch On</button>
+        <button onclick="document.getElementById('my-image').src='OFFbulb.png'">Switch Off</button>
+    </div>
+    
+    <input type="number" id="cm" placeholder="Enter value">
+    <button onclick="convert()">Convert</button>
+
+    <p id="result"></p>
+
+    <script>
+        function convert(){
+            let cm = document.getElementById("cm").value
+
+            let res = cm /2.54;
+
+            document.getElementById("result").innerHTML = res.toFixed(2)
+        }
+    </script>
+
+
+</body>
+</html>

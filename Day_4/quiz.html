@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+</head>
+<body>
+    <h3>Which state is capital of India?</h3>
+    <button id="btn-1" onclick="checkAnswer('chennai', 'btn-1')">Chennai</button>
+    <button id="btn-2" onclick="checkAnswer('mumbai', 'btn-2')">Mumbai</button>
+    <button id="btn-3" onclick="checkAnswer('london', 'btn-3')">London</button>
+    <button id="btn-4" onclick="checkAnswer('new_delhi', 'btn-4')">New Delhi</button>
+    <p id="result"></p>
+
+    <label>Gender</label>
+    
+    <input type="radio" name="gender" value="male">
+    <label for="male">Male</label>
+    
+    <input type="radio" name="gender" value="female">
+    <label for="female">Female</label>
+    <br><br>
+
+    
+    <div class="box">
+        <input type="number" id="age">
+        <button onclick="enter()">Store Value</button>
+    </div>
+
+    <script>        
+
+        function enter() {
+                let entered_value = document.getElementById("age").value;
+                console.log(entered_value)
+        }
+
+        function checkAnswer(answer,btn){
+            if(answer == "new_delhi"){
+                document.getElementById("result").innerHTML="Correct Answer"
+                document.getElementById(btn).style.background="green"
+            }
+            else{
+                document.getElementById("result").innerHTML = "Wrong Answer"
+                document.getElementById(btn).style.background = "red"
+            }
+        }
+    </script>
+    
+</body>
+</html>

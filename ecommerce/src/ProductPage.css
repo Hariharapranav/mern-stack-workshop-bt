@@ -1,0 +1,33 @@
+.product-page {
+  padding: 24px;
+  max-width: 600px;
+}
+
+.product-image {
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+}
+
+.product-info {
+  margin-top: 12px;
+  font-size: 16px;
+}
+
+.buy-button {
+  margin-top: 8px;
+  padding: 10px 16px;
+  background: #ff9900;
+  border: none;
+  cursor: pointer;
+}
+
+.not-found {
+  padding: 24px;
+}
+
+.product-square {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+}

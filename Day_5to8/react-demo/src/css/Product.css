@@ -1,0 +1,57 @@
+/* Styles for Product component */
+.product-card {
+  border: 1px solid #ddd;
+  padding: 12px;
+  border-radius: 6px;
+  text-align: center;
+  max-width: 220px;
+  margin: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.product-card img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 8px;
+}
+.product-card h3 {
+  margin: 6px 0 4px;
+  font-size: 1.05rem;
+}
+.product-card p {
+  margin: 0;
+  color: #555;
+}
+.product-card{
+    width: 300px;
+    height: 300px;
+    background-color: rgb(234, 208, 141);
+    text-align: center;
+    display: inline-block;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 15px;
+}
+
+.product-card img{
+    width: 90%;
+}
+
+.btn-all {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin: 10px;
+    padding: 10px;
+    gap: 20px;
+}
+
+.btn-all button{
+    padding: 7px;
+}
+
+.btn-all button:hover{
+    background-color: black;
+    color: antiquewhite;
+}

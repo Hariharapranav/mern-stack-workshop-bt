@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Simple Quiz</title>
+</head>
+
+<body>
+
+    <h2 id="question"></h2>
+
+    <input type="radio" name="answer" value="0"> <span id="op1"></span><br><br>
+
+    <input type="radio" name="answer" value="1"> <span id="op2"></span><br><br>
+
+    <input type="radio" name="answer" value="2"> <span id="op3"></span><br><br>
+
+    <input type="radio" name="answer" value="3"> <span id="op4"></span><br><br>
+
+    <button onclick="nextQuestion()">
+        Next
+    </button>
+
+    <script>
+
+        let questions = [
+            {
+                question: "Which keyword declares a constant?",
+                options: ["var", "let", "const", "static"]
+            },
+            {
+                question: "Which company created JavaScript?",
+                options: ["Google", "Apple", "Netscape", "Microsoft"]
+            },
+            {
+                question: "Which symbol is used for comments?",
+                options: ["//", "##", "**", "$$"]
+            }
+        ];
+
+        let currentQuestion = 0;
+
+        loadQuestion();
+
+        function loadQuestion() {
+
+            document.getElementById("question").innerHTML =
+                questions[currentQuestion].question;
+
+            document.getElementById("op1").innerHTML =
+                questions[currentQuestion].options[0];
+
+            document.getElementById("op2").innerHTML =
+                questions[currentQuestion].options[1];
+
+            document.getElementById("op3").innerHTML =
+                questions[currentQuestion].options[2];
+
+            document.getElementById("op4").innerHTML =
+                questions[currentQuestion].options[3];
+        }
+
+        function nextQuestion() {
+
+            currentQuestion++;
+
+            if (currentQuestion < questions.length) {
+                loadQuestion();
+            }
+            else {
+                document.body.innerHTML =
+                    "<h1>Quiz Completed</h1>";
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>

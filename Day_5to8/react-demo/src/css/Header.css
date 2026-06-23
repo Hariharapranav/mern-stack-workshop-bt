@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.header-box{
+    background-color: black;
+    color: rgb(221, 87, 75);
+    text-align: center;
+    font-family: sans-serif;
+    font-size: medium;
+}
+
+.header-box h3{
+    font-size: smaller;
+    color: blanchedalmond;
+}

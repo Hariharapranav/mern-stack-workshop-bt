@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buttons Alert in JS</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .parent{
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            background-color: antiquewhite;
+            padding: 20px;
+        }
+        .parent button{
+            background-color: black;
+            color: white;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <marquee scrollAmount="10"><h3>Alert Message will pop up if u click buttons!!!</h3></marquee>
+    <div class="parent">
+        <button onclick="addition()">Add</button>
+        <button onclick="subtraction()">Subtract</button>
+        <button onclick="multiplication()">Multiply</button>
+        <button onclick="division()">Division</button>
+    </div>
+    
+    <script>
+        function addition(){
+            alert("Addition of 2+3 is: " + (2+3))
+        }
+        function subtraction(){
+            alert("Subtraction of 3-2 is: " + (3-2))
+        }
+        function multiplication(){
+            alert("Multiplication of 2*3 is: " + (2 * 3))
+        }
+        function division(){
+            alert("Division of 8/4 is: " + (8/4))
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+.header{
+    width: 200px;
+    height: 200px;
+    background-color: aquamarine;
+    text-align: center;
+}
+
+.header ul{
+    list-style: none;
+}
