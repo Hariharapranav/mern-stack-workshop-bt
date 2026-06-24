@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Arun Kumar",
+    "age": 20,
+    "department": "CSE",
+    "year": 2,
+    "cgpa": 8.5,
+    "city": "Erode"
+  },
+  {
+    "name": "Priya Sharma",
+    "age": 21,
+    "department": "ECE",
+    "year": 3,
+    "cgpa": 8.9,
+    "city": "Coimbatore"
+  },
+  {
+    "name": "Rahul Raj",
+    "age": 22,
+    "department": "IT",
+    "year": 4,
+    "cgpa": 8.1,
+    "city": "Salem"
+  },
+  {
+    "name": "Divya",
+    "age": 20,
+    "department": "CSE",
+    "year": 2,
+    "cgpa": 9.2,
+    "city": "Namakkal"
+  },
+  {
+    "name": "Karthik",
+    "age": 21,
+    "department": "MECH",
+    "year": 3,
+    "cgpa": 7.8,
+    "city": "Tiruppur"
+  },
+  {
+    "name": "Sneha",
+    "age": 22,
+    "department": "ECE",
+    "year": 4,
+    "cgpa": 8.7,
+    "city": "Karur"
+  },
+  {
+    "name": "Vignesh",
+    "age": 19,
+    "department": "CSE",
+    "year": 1,
+    "cgpa": 8.0,
+    "city": "Erode"
+  },
+  {
+    "name": "Meena",
+    "age": 20,
+    "department": "IT",
+    "year": 2,
+    "cgpa": 9.1,
+    "city": "Chennai"
+  },
+  {
+    "name": "Hari",
+    "age": 21,
+    "department": "CSE",
+    "year": 3,
+    "cgpa": 8.4,
+    "city": "Bangalore"
+  },
+  {
+    "name": "Anjali",
+    "age": 22,
+    "department": "ECE",
+    "year": 4,
+    "cgpa": 9.3,
+    "city": "Madurai"
+  }
+]
