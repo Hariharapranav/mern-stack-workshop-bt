@@ -1,23 +1,75 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "./Header";
+import { AuthContext } from "./AuthContext";
 import "./GetProducts.css";
 
 function GetProducts() {
   const [products, setProducts] = useState([]);
+  const [error, setError] = useState("");
+  const [orderModal, setOrderModal] = useState({ visible: false, message: "" });
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("http://localhost:3000/products")
-      .then(response => response.json())
-      .then(data => setProducts(data))
-      .catch(error => console.error("Error fetching products:", error));
+      .then((response) => response.json())
+      .then((data) => setProducts(data))
+      .catch((error) => console.error("Error fetching products:", error));
   }, []);
+
+  const handleBuyNow = async (product) => {
+    if (!user) {
+      navigate("/login");
+      return;
+    }
+
+    setError("");
+
+    try {
+      const response = await fetch("http://localhost:3000/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          userId: user.id,
+          username: user.username,
+          email: user.email,
+          productId: product._id,
+          productName: product.name,
+          price: product.price,
+          image: product.image || "",
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => null);
+        throw new Error(errorData?.message || "Unable to place order");
+      }
+
+      setOrderModal({ visible: true, message: `${product.name} has been ordered successfully!` });
+      setTimeout(() => navigate("/orders"), 1400);
+    } catch (error) {
+      setError(error.message || "Order failed. Try again.");
+    }
+  };
 
   return (
     <div>
       <Header />
       <div className="products-page">
         <h1 className="products-title">All Products</h1>
-        
+        {error && <div className="products-error">{error}</div>}
+        {orderModal.visible && (
+          <div className="order-modal-overlay">
+            <div className="order-modal">
+              <h3>Order Confirmed</h3>
+              <p>{orderModal.message}</p>
+              <div className="order-modal-footer">
+                <span>Redirecting to Orders...</span>
+              </div>
+            </div>
+          </div>
+        )}
         {products.length === 0 ? (
           <div className="no-products">
             <svg xmlns="http://www.w3.org/2000/svg" className="no-products-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -46,7 +98,9 @@ function GetProducts() {
                   <p>{product.description}</p>
                   <div className="product-meta-row">
                     <div className="product-price">₹{product.price}</div>
-                    <button className="buy-now-button">Buy Now</button>
+                    <button className="buy-now-button" onClick={() => handleBuyNow(product)}>
+                      Buy Now
+                    </button>
                   </div>
                 </div>
               </div>

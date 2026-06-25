@@ -1,5 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
 import Header from "./Header";
+import { AuthContext } from "./AuthContext";
 import headphoneImg from "./assets/product_headphone.png";
 import shirtImg from "./assets/product_shirt.png";
 import riceImg from "./assets/product_rice.png";
@@ -47,6 +49,8 @@ const productDetails = {
 function ProductPage() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
+  const [message, setMessage] = useState("");
   const product = productDetails[id];
 
   if (!product) {
@@ -60,6 +64,39 @@ function ProductPage() {
       </div>
     );
   }
+
+  const handleBuyNow = async () => {
+    if (!user) {
+      navigate("/login");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:3000/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          userId: user.id,
+          username: user.username,
+          email: user.email,
+          productId: id,
+          productName: product.name,
+          price: product.price,
+          image: product.image,
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => null);
+        throw new Error(errorData?.message || "Unable to place order");
+      }
+
+      setMessage("Order placed successfully!");
+      navigate("/orders");
+    } catch (err) {
+      setMessage(err.message || "Order failed. Try again.");
+    }
+  };
 
   return (
     <div>
@@ -84,6 +121,8 @@ function ProductPage() {
             
             <p className="product-desc">{product.description}</p>
             
+            {message && <div className="order-message">{message}</div>}
+            
             <div className="product-features-list">
               <h3>Key Features</h3>
               <ul>
@@ -95,7 +134,7 @@ function ProductPage() {
             
             <div className="purchase-actions">
               <button className="add-to-cart-btn">Add to Cart</button>
-              <button className="buy-now-btn">Buy It Now</button>
+              <button className="buy-now-btn" onClick={handleBuyNow}>Buy It Now</button>
             </div>
           </div>
         </div>

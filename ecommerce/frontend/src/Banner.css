@@ -25,13 +25,21 @@
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
 }
 
-.categories {
+.categories-row {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
     gap: 16px;
     padding: 24px 20px;
     background-color: white;
     border-bottom: 1px solid #f1f5f9;
+}
+
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex: 1;
 }
 
 .categories button {
@@ -52,4 +60,22 @@
     border-color: #10b981;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(16, 185, 129, 0.18);
+}
+
+.show-all-button {
+    padding: 10px 24px;
+    border: none;
+    background: #10b981;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.show-all-button:hover {
+    background: #059669;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.2);
 }

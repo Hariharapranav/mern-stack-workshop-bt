@@ -1,17 +1,26 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "./Header";
+import { AuthContext } from "./AuthContext";
 import "./Login.css";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert(`Logged in with: ${email}`);
-    navigate("/");
+    setError("");
+
+    try {
+      await login({ email, password });
+      navigate("/");
+    } catch (err) {
+      setError(err.message || "Login failed. Check your credentials.");
+    }
   };
 
   return (
@@ -21,6 +30,8 @@ function Login() {
         <div className="login-card">
           <h2>Welcome Back</h2>
           <p className="login-subtitle">Please log in to your account</p>
+
+          {error && <div className="login-error">{error}</div>}
           
           <form onSubmit={handleSubmit} className="login-form">
             <div className="form-group">
