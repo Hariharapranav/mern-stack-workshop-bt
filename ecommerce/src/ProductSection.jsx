@@ -53,7 +53,7 @@ function ProductSection() {
 
                         <button
                             onClick={() =>
-                                navigate(`/product/${product.id}`) //
+                                navigate(`/category/${product.id}`) //
                             }
                         >
                             View Details

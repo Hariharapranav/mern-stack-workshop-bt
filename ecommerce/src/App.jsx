@@ -3,6 +3,7 @@ import Header from "./Header";
 import Banner from "./Banner";
 import ProductSection from "./ProductSection";
 import ProductPage from "./ProductPage";
+import GetProducts from "./GetProducts";
 
 function Home() {
   return (
@@ -19,10 +20,10 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/product/:id" element={<ProductPage />} />
+        <Route path="/category/:id" element={<ProductPage />} />
+        <Route path="/products" element={<GetProducts />} />
       </Routes>
     </Router>
   );
 }
-
 export default App;

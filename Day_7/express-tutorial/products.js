@@ -5,6 +5,8 @@ const port = 3000;
 //importing mongoose
 const mongoose = require('mongoose');
 
+//importing cors
+const cors = require('cors');
 //connecting mongoDB
 mongoose.connect('mongodb://localhost:27017/mernDB').then(() => {
     console.log('Connected to MongoDB');
@@ -13,6 +15,7 @@ mongoose.connect('mongodb://localhost:27017/mernDB').then(() => {
 })
 
 app.use(express.json());  
+app.use(cors());
 
 //creating a schema
 const productSchema = new mongoose.Schema({
@@ -34,6 +37,12 @@ app.post('/products', (req, res) => {
     product.save() //saves values in mongoDB 
     res.send(product)
 })
+
+//display products from db
+app.get('/products', async(req, res)=>{
+    const products =  await Products.find();
+    res.send(products);
+});
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
