@@ -1,5 +1,8 @@
 import "./ProductSection.css";
 import { useNavigate } from "react-router-dom";
+import headphoneImg from "./assets/product_headphone.png";
+import shirtImg from "./assets/product_shirt.png";
+import riceImg from "./assets/product_rice.png";
 
 function ProductSection() {
 
@@ -8,21 +11,21 @@ function ProductSection() {
     const products = [
         {
             id: 1,
-            name: "Headphone",
+            name: "Premium Headphones",
             price: 999,
-            color: "#95E1D3"
+            image: headphoneImg
         },
         {
             id: 2,
-            name: "Shirt",
+            name: "Classic Cotton Shirt",
             price: 499,
-            color: "#F38181"
+            image: shirtImg
         },
         {
             id: 3,
-            name: "Rice Bag",
+            name: "Organic Jasmine Rice",
             price: 799,
-            color: "#FFE66D"
+            image: riceImg
         }
     ];
 
@@ -31,20 +34,19 @@ function ProductSection() {
         <div className="products">
 
             {
-                products.map((product) => ( //map links to product array and loops through it
+                products.map((product) => (
 
                     <div
                         key={product.id}
                         className="card"
                     >
 
-                        <div
-                            className="card-image"
-                            style={{
-                                backgroundColor: product.color
-                            }}
-                        >
-                            📦
+                        <div className="card-image-container">
+                            <img 
+                                src={product.image} 
+                                alt={product.name} 
+                                className="card-image"
+                            />
                         </div>
 
                         <h3>{product.name}</h3>
@@ -53,7 +55,7 @@ function ProductSection() {
 
                         <button
                             onClick={() =>
-                                navigate(`/category/${product.id}`) //
+                                navigate(`/category/${product.id}`)
                             }
                         >
                             View Details

@@ -1,4 +1,6 @@
 import "./Banner.css";
+import summerSaleImg from "./assets/summer_sale.png";
+import newArrivalsImg from "./assets/new_arrivals.png";
 
 function Banner() {
   return (
@@ -9,22 +11,16 @@ function Banner() {
         <div 
           className="banner"
           style={{
-            backgroundColor: '#FF6B6B',
-            backgroundImage: 'linear-gradient(135deg, #FF6B6B, #FF8E72)'
+            backgroundImage: `url(${summerSaleImg})`
           }}
-        >
-          Summer Sale
-        </div>
+        />
 
         <div 
           className="banner"
           style={{
-            backgroundColor: '#4ECDC4',
-            backgroundImage: 'linear-gradient(135deg, #4ECDC4, #44B8B3)'
+            backgroundImage: `url(${newArrivalsImg})`
           }}
-        >
-          New Arrivals
-        </div>
+        />
 
       </div>
 

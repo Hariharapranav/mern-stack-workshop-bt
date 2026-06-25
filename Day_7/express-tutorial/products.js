@@ -15,7 +15,7 @@ mongoose.connect('mongodb://localhost:27017/mernDB').then(() => {
 })
 
 app.use(express.json());  
-app.use(cors());
+app.use(cors()); // using cors to allow cross-origin requests
 
 //creating a schema
 const productSchema = new mongoose.Schema({

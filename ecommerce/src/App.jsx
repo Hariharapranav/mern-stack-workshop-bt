@@ -4,6 +4,7 @@ import Banner from "./Banner";
 import ProductSection from "./ProductSection";
 import ProductPage from "./ProductPage";
 import GetProducts from "./GetProducts";
+import Login from "./Login";
 
 function Home() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/category/:id" element={<ProductPage />} />
         <Route path="/products" element={<GetProducts />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </Router>
   );

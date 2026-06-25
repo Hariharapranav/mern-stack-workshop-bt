@@ -1,10 +1,13 @@
+import { Link, useNavigate } from "react-router-dom";
 import "./Header.css";
 
 function Header() {
+  const navigate = useNavigate();
+
   return (
     <div className="header">
 
-      <div className="logo">
+      <div className="logo" onClick={() => navigate("/")}>
         Shopy
       </div>
 
@@ -15,8 +18,8 @@ function Header() {
       />
 
       <div className="nav-links">
-        <a href="/">Login</a>
-        <a href="/">Cart</a>
+        <Link to="/login">Login</Link>
+        <Link to="/">Cart</Link>
       </div>
 
     </div>
